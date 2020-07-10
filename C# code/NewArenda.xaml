@@ -1,0 +1,40 @@
+﻿<Window x:Class="bicycles.NewArenda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bicycles" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Оформление аренды" Height="450" Width="400" Background="#FF23C5DE" Closing="Window_Closing">
+    <Window.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="TextBlock.Margin" Value="20,12"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="TextBox">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Margin" Value="90,0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="xctk:MaskedTextBox" x:Key="Mask">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="10,30" Background="White">
+        <TextBlock Text="ФИО" Style="{StaticResource TextBlockStyle}"/>
+        <TextBox LostFocus="FIOText" x:Name="FIOText_" Style="{StaticResource TextBox}"/>
+        <TextBlock Text="Паспортные данные" Style="{StaticResource TextBlockStyle}"/>
+        <TextBox LostFocus="PassportText" x:Name="PassportText_" Style="{StaticResource TextBox}" TextChanged="PassportText__TextChanged"/>
+        <TextBlock Text="Телефон" Style="{StaticResource TextBlockStyle}"/>
+        <xctk:MaskedTextBox Mask="+7(000) 000-0000" LostFocus="TelevonText" x:Name="TelevonText_" Style="{StaticResource Mask}"/>
+        <TextBlock Text="Дата возврата" Style="{StaticResource TextBlockStyle}"/>
+        <xctk:MaskedTextBox Mask="0000-00-00" LostFocus="DateText" x:Name="DateText_" Style="{StaticResource Mask}"/>
+        <TextBlock Text="Сумма залога" Style="{StaticResource TextBlockStyle}"/>
+        <TextBox Style="{StaticResource TextBox}" x:Name="SumText" IsReadOnly="True"/>
+        <Button Content="Оформить" Click="ADD" Margin="60,30" Background="#FF23C5DE" BorderBrush="Black"/>
+    </StackPanel>
+</Window>

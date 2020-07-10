@@ -1,0 +1,42 @@
+﻿<Window x:Class="bicycles.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bicycles"
+        mc:Ignorable="d"
+        Title="Manager" Height="450" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid Background="#FF1580A8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" x:Name="infoTable" Margin="2" ColumnWidth="*" SelectionChanged="infoTable_SelectionChanged"/>
+        <StackPanel Background="#FF73B9B9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="PanelBox">
+            <TextBlock Text="Класс" HorizontalAlignment="Center" Margin="0, 10"/>
+            <ComboBox x:Name="ClassBox" Margin="3,0" Tag="classname">
+                <ComboBoxItem Content="mountain"/>
+                <ComboBoxItem Content="road"/>
+                <ComboBoxItem Content="hybrid"/>
+                <ComboBoxItem Content="sport"/>
+            </ComboBox>
+            <TextBlock Text="Производитель" HorizontalAlignment="Center" Margin="0, 10"/>
+            <ComboBox x:Name="ProisvodBox" Margin="3,0" Tag="producer"/>
+            <TextBlock Text="Тариф за сутки" HorizontalAlignment="Center" Margin="0, 10"/>
+            <ComboBox x:Name="TarivBox" Margin="3,0" Tag="price_per_day"/>
+            <TextBlock Text="Наличие багажника" HorizontalAlignment="Center" Margin="0, 10"/>
+            <ComboBox x:Name="BagajBox" Margin="3,0" Tag="trunk">
+                <ComboBoxItem Content="Да"/>
+                <ComboBoxItem Content="Нет"/>
+            </ComboBox>
+            <TextBlock Text="Наличие шоссейной трансмиссии" HorizontalAlignment="Center" Margin="3, 10"/>
+            <ComboBox x:Name="TransmissiaBox" Margin="3,0" Tag="road_transmission">
+                <ComboBoxItem Content="Да"/>
+                <ComboBoxItem Content="Нет"/>
+            </ComboBox>
+            <Button Content="Применить" Margin="20, 30, 20, 10" Click="AcceptFilter"/>
+            <Button Content="Очистить фильтры" Margin="20, 0, 20,10" Click="Window_Loaded"/>
+            <Button Content="Аренда" Margin="20, 0,20,10" Click="NewArenda"/>
+        </StackPanel>
+    </Grid>
+</Window>
